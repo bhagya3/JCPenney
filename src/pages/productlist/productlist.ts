@@ -1,15 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { GetProductList } from '../../providers/get-product-list';
-import { Slides } from 'ionic-angular';
+// import { Slides } from 'ionic-angular';
 
-
-/*
-  Generated class for the Departments page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-productlist',
   templateUrl: 'productlist.html',

@@ -10,9 +10,9 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
 
-<!-- <ion-row>
+  <!-- <ion-row>
  <ion-col *ngFor="let department of departments">
     <ion-item  no-lines>
  <button ion-item (click)="deptSelected($event, department)" > 
@@ -27,21 +27,17 @@
 </ion-row>
     
    -->
-   <ion-row wrap no-padding>
-
-   <ion-col width-33 *ngFor="let department of departments" col-no-padding>
-  <ion-item  no-lines text-wrap no-margin >
-     
- <button ion-item (click)="deptSelected($event, department)" detail-none no-padding> 
-      <ion-avatar >
-        <img  src="{{department.image.url}}" >
-         <h2 >{{department.name}}</h2>
-      </ion-avatar>
-
-     
-    </button>
-     
-</ion-item>  
-  </ion-col>
-</ion-row>
+  <ion-row>
+    <ion-col width-33 *ngFor="let department of departments" col-no-padding>
+      <ion-item  class="department" no-lines text-wrap no-margin>
+        <button ion-item (click)="deptSelected($event, department)" detail-none no-padding> 
+          <ion-avatar>
+            <img  src="{{department.image.url}}" >
+            
+          </ion-avatar>
+          <span>{{department.name}}</span>
+         </button>
+      </ion-item>
+    </ion-col>
+  </ion-row>
 </ion-content>

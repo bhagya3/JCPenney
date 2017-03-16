@@ -10,8 +10,8 @@ import { GetSublist } from '../../providers/get-sublist';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-productlist',
-  templateUrl: 'productlist.html',
+  selector: 'page-sublist',
+  templateUrl: 'sublist.html',
   providers: [GetSublist]
 })
 export class SublistPage {

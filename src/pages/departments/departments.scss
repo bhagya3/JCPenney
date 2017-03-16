@@ -1,3 +1,18 @@
 page-departments {
-
+  .department{
+    ion-label{
+      text-align: center;
+      button{
+          img{
+            width: 75px;
+            height: 75px;
+          }
+          span{
+            font-size: 12px;
+            text-transform: capitalize;
+            white-space: nowrap;
+          }
+      }  
+    }
+  }
 }
