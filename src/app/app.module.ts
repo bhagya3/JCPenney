@@ -4,13 +4,15 @@ import { MyApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
 import { DepartmentsPage } from '../pages/departments/departments';
 import { StorePage } from '../pages/store/store';
+import { ProductlistPage } from '../pages/productlist/productlist';
 
 @NgModule({
   declarations: [
     MyApp, 
     TabsPage,
     DepartmentsPage,
-    StorePage
+    StorePage,
+    ProductlistPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -20,10 +22,13 @@ import { StorePage } from '../pages/store/store';
     MyApp,
     TabsPage,
     DepartmentsPage,
-    StorePage
+    StorePage,
+    ProductlistPage
   ],
   providers: [{
     provide: ErrorHandler, useClass: IonicErrorHandler,
   }]
 })
 export class AppModule { }
+
+
