@@ -33,10 +33,8 @@ export class GetProductList {
         .subscribe(data => {
           this.selectedDepartment = department;
           for (var i=0; i< data.groups[0].categories.length; i++){
-            console.log(this.selectedDepartment.name)
             if(data.groups[0].categories[i].name == this.selectedDepartment.name){
                this.data = data.groups[0].categories[i];
-               console.log(data.groups[0].categories[i]);
                break; 
             }
 

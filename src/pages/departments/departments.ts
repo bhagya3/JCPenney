@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { GetDepartments } from '../../providers/get-departments';
+import { ProductlistPage } from '../productlist/productlist';
+
+
 /*
   Generated class for the Departments page.
 
@@ -26,7 +29,16 @@ loadDepartment(){
     //console.log(data);
   });
 }
-  ionViewDidLoad() {
+
+deptSelected(event, department){
+      this.navCtrl.push(ProductlistPage, 
+      {
+       department: department,
+       defaultUrl : department.image.url
+    });
+  };
+
+ ionViewDidLoad() {
     //console.log('ionViewDidLoad DepartmentsPage');
   }
 

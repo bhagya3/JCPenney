@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { GetProductList } from '../../providers/get-product-list';
+import { Slides } from 'ionic-angular';
 
 
 /*
@@ -44,3 +45,5 @@ loadProductList(){
   }
 
 }
+
+

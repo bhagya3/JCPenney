@@ -1,13 +1,22 @@
-<ion-header>
+<ion-header >
   <ion-navbar>
-    <ion-title>{{department.name}}</ion-title>
+    <ion-title> {{department.name}} </ion-title>
+    
+  
+      
+    
   </ion-navbar>
 </ion-header>
 
+
+
+
+
+
 <ion-content padding>
-  <ion-list class="col-sm-3">
+  <ion-list >
     <ion-item *ngFor="let product of products" no-lines>
-    <button ion-item (click)="deptSelected($event, department)" > 
+    <button ion-item (click)="deptSelected($event, department)" detail-none> 
       <ion-avatar item-left>
         <img *ngIf ="product.image" src="{{product.image.url}}">
         <img *ngIf ="!product.image" src="{{defaultUrl}}">
