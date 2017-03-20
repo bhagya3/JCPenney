@@ -33,21 +33,12 @@ export class GetSublist {
       this.http.get('http://m.jcpenney.com/v4/categories/N-bwo3yD1nohp5')
         .map(res => res.json())
         .subscribe(data => {
-          this.selectedDepartment = department;
-          for (var i=0; i< data.groups[0].categories.length; i++){
-            
-            if(data.groups[0].categories[i].name == this.selectedDepartment.name){
-               this.data = data.groups[0].categories[i];
-               
-               break; 
-            }
-
-
-          }
+          this.data = data.products.data;
           resolve(this.data);
-        
         });
     });
   }
 }
+
+
 

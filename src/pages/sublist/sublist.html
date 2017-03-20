@@ -1,0 +1,28 @@
+<ion-header >
+  <ion-navbar>
+    <ion-title> Shirts</ion-title>
+    
+  
+      
+    
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <ion-list >
+    <ion-item *ngFor="let subproduct of subproducts" no-lines>
+    <button ion-item  detail-none> 
+      <ion-avatar item-left>
+        <img src="{{subproduct.images[0].url}}">
+        
+
+      </ion-avatar>
+      <h2>{{subproduct.name}}</h2>
+      </button>
+
+     
+    </ion-item>
+  </ion-list>
+</ion-content> 
