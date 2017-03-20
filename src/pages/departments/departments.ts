@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 import { ProductlistPage } from '../productlist/productlist';
 import { GetDepartments } from '../../providers/get-departments';
 import { SearchItem } from "../../providers/search-item";
-
 
 /*
   Generated class for the Departments page.
@@ -14,7 +14,7 @@ import { SearchItem } from "../../providers/search-item";
 @Component({
   selector: 'page-departments',
   templateUrl: 'departments.html',
-  providers: [GetDepartments,SearchItem]
+  providers: [GetDepartments, SearchItem]
 })
 export class DepartmentsPage {
 
@@ -23,15 +23,20 @@ export class DepartmentsPage {
   searchFlag: boolean;
   searchTag: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public getDept: GetDepartments, public srchItem: SearchItem) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public getDept: GetDepartments, public srchItem: SearchItem, public loadingController: LoadingController) {
     this.loadDepartment();
     this.searchFlag = true;
   }
 
   loadDepartment() {
+    let loader = this.loadingController.create({
+      content: "Please wait.."
+    });
+    loader.present();
     this.getDept.load()
       .then(data => {
         this.departments = data;
+         loader.dismiss();
       });
   };
 
@@ -43,11 +48,16 @@ export class DepartmentsPage {
       });
   };
   searchClickHandler(event) {
-     this.srchItem.load(this.searchTag)
-    .then(data =>{
-      this.searchedItem = data;
-       console.log(this.searchedItem);
+    let loader = this.loadingController.create({
+      content: "Please wait.."
     });
+    loader.present();
+    this.srchItem.load(this.searchTag)
+      .then(data => {
+        this.searchedItem = data;
+         loader.dismiss();
+        console.log(this.searchedItem);
+      });
   };
 
   showTextInput(event) {

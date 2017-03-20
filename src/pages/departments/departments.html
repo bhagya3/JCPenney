@@ -7,8 +7,8 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Departments</ion-title>
-    <button item-right clear (click)='showTextInput($event)'>
-         <ion-icon name="search"></ion-icon>
+    <button class="search" item-right clear (click)='showTextInput($event)'>
+         <ion-icon  name="search"></ion-icon>
     </button>
 
   </ion-navbar>
@@ -18,7 +18,7 @@
   <ion-row>
     <ion-item [hidden]="searchFlag">
       <ion-input placeholder="Search" [value]="searchTag" [(ngModel)]="searchTag"></ion-input>
-      <button item-right (click)="searchClickHandler($event)">GO</button>
+      <button class="goButton" item-right (click)="searchClickHandler($event)">GO</button>
     </ion-item>
   </ion-row>
   <ion-row>
