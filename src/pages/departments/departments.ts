@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { GetDepartments } from '../../providers/get-departments';
 import { ProductlistPage } from '../productlist/productlist';
+import { GetDepartments } from '../../providers/get-departments';
+import { SearchItem } from "../../providers/search-item";
 
 
 /*
@@ -13,32 +14,48 @@ import { ProductlistPage } from '../productlist/productlist';
 @Component({
   selector: 'page-departments',
   templateUrl: 'departments.html',
-  providers: [GetDepartments]
+  providers: [GetDepartments,SearchItem]
 })
 export class DepartmentsPage {
-  public departments: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public getDept: GetDepartments) { 
+  public departments: any;
+  public searchedItem: any;
+  searchFlag: boolean;
+  searchTag: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public getDept: GetDepartments, public srchItem: SearchItem) {
     this.loadDepartment();
+    this.searchFlag = true;
   }
 
-loadDepartment(){
-  this.getDept.load()
-  .then(data => {
-    this.departments = data;
-    //console.log(data);
-  });
-}
+  loadDepartment() {
+    this.getDept.load()
+      .then(data => {
+        this.departments = data;
+      });
+  };
 
-deptSelected(event, department){
-      this.navCtrl.push(ProductlistPage, 
+  deptSelectHandler(event, department) {
+    this.navCtrl.push(ProductlistPage,
       {
-       department: department,
-       defaultUrl : department.image.url
+        department: department,
+        defaultUrl: department.image.url
+      });
+  };
+  searchClickHandler(event) {
+     this.srchItem.load(this.searchTag)
+    .then(data =>{
+      this.searchedItem = data;
+       console.log(this.searchedItem);
     });
   };
 
- ionViewDidLoad() {
+  showTextInput(event) {
+    this.searchFlag == false ? this.searchFlag = true : this.searchFlag = false;
+  };
+
+
+  ionViewDidLoad() {
     //console.log('ionViewDidLoad DepartmentsPage');
   }
 
