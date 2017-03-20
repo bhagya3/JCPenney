@@ -1,4 +1,10 @@
 page-departments {
+  .search{
+    background-color: $colorHeader;
+  }
+  .goButton{
+    background-color: $colorWhite;
+  }
   .department{
     ion-label{
       text-align: center;
