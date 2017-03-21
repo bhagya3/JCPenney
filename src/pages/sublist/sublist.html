@@ -1,6 +1,6 @@
 <ion-header >
   <ion-navbar>
-    <ion-title> Shirts</ion-title>
+    <ion-title> {{product.name}}</ion-title>
     
   
       
@@ -10,7 +10,7 @@
 
 
 
-<ion-content padding>
+<!-- <ion-content padding>
   <ion-list >
     <ion-item *ngFor="let subproduct of subproducts" no-lines>
     <button ion-item  detail-none> 
@@ -25,4 +25,48 @@
      
     </ion-item>
   </ion-list>
-</ion-content> 
+</ion-content>  -->
+
+
+<ion-content class="cards-bg">
+
+ <ion-card *ngFor="let subproduct of subproducts">
+
+    <img src="{{product.image.url}}">
+
+    <ion-card-content>
+      <ion-card-title>
+        {{subproduct.name}}
+      </ion-card-title>
+      <p>rating : {{subproduct.rating}}</p>
+      <p>
+        ${{subproduct.prices[0].min}}
+      </p>
+      <p color="danger">{{subproduct.marketingLabel}}</p>
+    </ion-card-content>
+
+    <!-- <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="danger" icon-left>
+          <ion-icon name='star'></ion-icon>
+          Favorite
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="danger" icon-left>
+          <ion-icon name='musical-notes'></ion-icon>
+          Listen
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="danger" icon-left>
+          <ion-icon name='share-alt'></ion-icon>
+          Share
+        </button>
+      </ion-col>
+    </ion-row> -->
+
+  </ion-card>
+
+
+</ion-content>>

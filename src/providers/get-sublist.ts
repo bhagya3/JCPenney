@@ -3,38 +3,31 @@ import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the GetDepartments provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
-
-
-
 @Injectable()
 export class GetSublist {
 
   data : any;
   selectedDepartment: any;
   selectedCategory: any;
+  hrefv:any;
 
   constructor(public http: Http) {
     this.data = null;
-    //console.log('Hello GetDepartments Provider');
+    
   }
 
-  load(department){
-    if (this.data) {
-      return Promise.resolve(this.data);
-    }
+ load(departement, category){
+   
 
    return new Promise(resolve => {
-      this.http.get('http://m.jcpenney.com/v4/categories/N-bwo3yD1nohp5')
+      this.http.get(category.href)
         .map(res => res.json())
         .subscribe(data => {
+
           this.data = data.products.data;
+          //console.log(data);
           resolve(this.data);
+     
         });
     });
   }
