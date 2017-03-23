@@ -7,12 +7,19 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Store</ion-title>
+    <ion-title>Stores</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+   <ion-col *ngFor="let store of stores" col-no-padding>
+      <ion-item class="store" no-lines text-wrap no-margin>
+        <h2>{{store.name}}</h2>
+        <span>{{store.city}}</span>
+        <button ion-button item-right (click)="mapViewListener($event,store)">Map</button>
+        
+      </ion-item>
+    </ion-col>
 </ion-content>
