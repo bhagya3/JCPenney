@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { GetSublist } from '../../providers/get-sublist';
+import {ProductDescPage} from '../product-desc/product-desc';
 
 
 /*
@@ -26,6 +27,7 @@ export class SublistPage {
     this.department = navParams.get('department');
 
     this.product= navParams.get('product');
+    //console.log(this.product);
     // this.defaultUrl = navParams.get('defaultUrl');
     this.loadsublist();
   }
@@ -42,11 +44,17 @@ loadsublist(){
   });
 }
 
+productDetailHandler(event, subproduct) {
+  //alert(subproduct);
+    this.navCtrl.push(ProductDescPage,
+      {
+        
+        subproduct: subproduct.url
+        
+      });
+  };
 
-
-
-
-  ionViewDidLoad() {
+ionViewDidLoad() {
     //console.log('ionViewDidLoad DepartmentsPage');
 
   }

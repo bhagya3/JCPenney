@@ -4,6 +4,9 @@ import { ProductlistPage } from '../productlist/productlist';
 import { GetDepartments } from '../../providers/get-departments';
 import { SearchItem } from "../../providers/search-item";
 
+
+
+
 /*
   Generated class for the Departments page.
 
@@ -21,6 +24,8 @@ export class DepartmentsPage {
   public searchedItem: any;
   searchFlag: boolean;
   searchTag: any;
+
+ 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public getDept: GetDepartments, public srchItem: SearchItem, public loadingController: LoadingController) {
     this.loadDepartment();
@@ -64,9 +69,14 @@ export class DepartmentsPage {
     this.searchFlag == false ? this.searchFlag = true : this.searchFlag = false;
   };
 
+  
+  
+
+
 
   ionViewDidLoad() {
     //console.log('ionViewDidLoad DepartmentsPage');
+
   }
 
 }

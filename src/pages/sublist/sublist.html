@@ -30,7 +30,7 @@
 
 <ion-content class="cards-bg">
 
- <ion-card *ngFor="let subproduct of subproducts">
+ <ion-card  *ngFor="let subproduct of subproducts" (click)="productDetailHandler($event, subproduct)">
 
     <img src="{{product.image.url}}">
 
@@ -42,31 +42,7 @@
       <p>
         ${{subproduct.prices[0].min}}
       </p>
-      <p color="danger">{{subproduct.marketingLabel}}</p>
+      <p color="danger"> {{subproduct.marketingLabel}} </p>
     </ion-card-content>
-
-    <!-- <ion-row no-padding>
-      <ion-col>
-        <button ion-button clear small color="danger" icon-left>
-          <ion-icon name='star'></ion-icon>
-          Favorite
-        </button>
-      </ion-col>
-      <ion-col text-center>
-        <button ion-button clear small color="danger" icon-left>
-          <ion-icon name='musical-notes'></ion-icon>
-          Listen
-        </button>
-      </ion-col>
-      <ion-col text-right>
-        <button ion-button clear small color="danger" icon-left>
-          <ion-icon name='share-alt'></ion-icon>
-          Share
-        </button>
-      </ion-col>
-    </ion-row> -->
-
-  </ion-card>
-
-
-</ion-content>>
+ </ion-card>
+</ion-content>
