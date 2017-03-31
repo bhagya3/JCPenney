@@ -7,7 +7,7 @@ import { StorePage } from '../pages/store/store';
 import { ProductlistPage } from '../pages/productlist/productlist';
 import { SublistPage} from '../pages/sublist/sublist';
 import {ProductDescPage} from '../pages/product-desc/product-desc';
-
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,9 @@ import {ProductDescPage} from '../pages/product-desc/product-desc';
     SublistPage,
     ProductDescPage
   ],
-  providers: [{
+  providers: [
+  BarcodeScanner,
+  {
     provide: ErrorHandler, useClass: IonicErrorHandler,
   }]
 })

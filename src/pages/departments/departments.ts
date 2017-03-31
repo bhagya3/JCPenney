@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController,LoadingController, NavParams } from 'ionic-angular';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { ProductlistPage } from '../productlist/productlist';
 import { GetDepartments } from '../../providers/get-departments';
 import { SearchItem } from "../../providers/search-item";
+
 
 
 
@@ -27,7 +29,7 @@ export class DepartmentsPage {
 
  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public getDept: GetDepartments, public srchItem: SearchItem, public loadingController: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public getDept: GetDepartments, public srchItem: SearchItem, public loadingController: LoadingController,public barcodeScanner: BarcodeScanner) {
     this.loadDepartment();
     this.searchFlag = true;
   }
@@ -68,6 +70,16 @@ export class DepartmentsPage {
   showTextInput(event) {
     this.searchFlag == false ? this.searchFlag = true : this.searchFlag = false;
   };
+
+scan(){
+
+this.barcodeScanner.scan().then((barcodeData) => {
+    alert(barcodeData);
+}, (err) => {
+    console.log('error');
+});
+
+}
 
   
   
