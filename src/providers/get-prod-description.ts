@@ -4,27 +4,30 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class GetSublist {
+export class GetProdDescription {
 
   data : any;
-  selectedDepartment: any;
-  selectedCategory: any;
-  hrefv:any;
+  productUrl : any;
+
 
   constructor(public http: Http) {
     this.data = null;
     
   }
 
- load(departement, category){
+ load(product){
    
 
    return new Promise(resolve => {
-      this.http.get(category.href)
+      this.productUrl = product;
+      console.log(this.productUrl);
+      
+      this.http.get(this.productUrl)
         .map(res => res.json())
         .subscribe(data => {
+          //console.log(this.data);
 
-          this.data = data.products.data;
+          this.data = data;
           //console.log(data);
           resolve(this.data);
      
@@ -32,6 +35,4 @@ export class GetSublist {
     });
   }
 }
-
-
 

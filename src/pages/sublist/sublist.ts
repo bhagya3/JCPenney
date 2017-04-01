@@ -1,46 +1,70 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { GetSublist } from '../../providers/get-sublist';
+import {ProductDescPage} from '../product-desc/product-desc';
 
 
 /*
-  Generated class for the Departments page.
+  Generated class for the Sublist page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
+
 @Component({
   selector: 'page-sublist',
   templateUrl: 'sublist.html',
+
   providers: [GetSublist]
 })
 export class SublistPage {
-  public products: any;
+  public subproducts: any;
   department : any;
   defaultUrl : any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public getProdList: GetSublist) { 
+  product: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public getList: GetSublist) { 
+    //console.log(navParams)
     this.department = navParams.get('department');
-    this.defaultUrl = navParams.get('defaultUrl');
-    this.loadProductList();
+
+    this.product= navParams.get('product');
+    //console.log(this.product);
+    // this.defaultUrl = navParams.get('defaultUrl');
+    this.loadsublist();
   }
 
-loadProductList(){
-  this.getProdList.load(this.department)
+
+loadsublist(){
+  //console.log(this.product);
+
+  this.getList.load(this.department, this.product)
+
   .then(data => {
-    this.products = [];
-    console.log(data.groups.length);
-    for(let i = 0 ;i<data.groups.length;i++){
-      console.log(data.groups[i]);
-      this.products = this.products.concat(data.groups[i].categories);
-    }
-    console.log("Hihihihi")
-    console.log(this.products);
-    // console.log(data);
+   this.subproducts = data;
+    //console.log(data);
   });
 }
-  ionViewDidLoad() {
+
+productDetailHandler(event, subproduct) {
+  //alert(subproduct);
+    this.navCtrl.push(ProductDescPage,
+      {
+        
+        subproduct: subproduct.url
+        
+      });
+  };
+
+ionViewDidLoad() {
     //console.log('ionViewDidLoad DepartmentsPage');
 
   }
 
 }
+
+
+
+
+
+
+
+

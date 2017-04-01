@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { GetProductList } from '../../providers/get-product-list';
-// import { Slides } from 'ionic-angular';
+import {SublistPage} from '../sublist/sublist';
+
 
 @Component({
   selector: 'page-productlist',
@@ -11,6 +12,7 @@ import { GetProductList } from '../../providers/get-product-list';
 export class ProductlistPage {
   public products: any;
   department : any;
+  category: any;
   defaultUrl : any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public getProdList: GetProductList) { 
     this.department = navParams.get('department');
@@ -21,17 +23,26 @@ export class ProductlistPage {
 loadProductList(){
   this.getProdList.load(this.department)
   .then(data => {
+
     this.products = [];
-    console.log(data.groups.length);
+  
     for(let i = 0 ;i<data.groups.length;i++){
-      console.log(data.groups[i]);
+     
       this.products = this.products.concat(data.groups[i].categories);
     }
-    console.log("Hihihihi")
-    console.log(this.products);
-    // console.log(data);
+   
+    
   });
 }
+
+ categorySelectHandler(event, product, department) {
+    this.navCtrl.push(SublistPage,
+      {
+        department: department,
+        product: product
+        
+      });
+  };
   ionViewDidLoad() {
     //console.log('ionViewDidLoad DepartmentsPage');
 

@@ -5,6 +5,9 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { DepartmentsPage } from '../pages/departments/departments';
 import { StorePage } from '../pages/store/store';
 import { ProductlistPage } from '../pages/productlist/productlist';
+import { SublistPage} from '../pages/sublist/sublist';
+import {ProductDescPage} from '../pages/product-desc/product-desc';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 @NgModule({
   declarations: [
@@ -12,7 +15,10 @@ import { ProductlistPage } from '../pages/productlist/productlist';
     TabsPage,
     DepartmentsPage,
     StorePage,
-    ProductlistPage
+    ProductlistPage,
+    SublistPage,
+    ProductDescPage
+   
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -23,9 +29,13 @@ import { ProductlistPage } from '../pages/productlist/productlist';
     TabsPage,
     DepartmentsPage,
     StorePage,
-    ProductlistPage
+    ProductlistPage,
+    SublistPage,
+    ProductDescPage
   ],
-  providers: [{
+  providers: [
+  BarcodeScanner,
+  {
     provide: ErrorHandler, useClass: IonicErrorHandler,
   }]
 })

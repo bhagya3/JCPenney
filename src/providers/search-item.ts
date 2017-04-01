@@ -20,6 +20,7 @@ export class SearchItem {
     //   return Promise.resolve(this.data);
     // }
     this.searchUrl = 'http://m.jcpenney.com/v4/search?q='+item;
+    alert(this.searchUrl);
     return new Promise(resolve => {
       this.http.get(this.searchUrl)
         .map(res => res.json())
