@@ -6,10 +6,12 @@ page-departments {
     background-color: $colorWhite;
   }
   .department{
+     background-color: $colorWhite;
     ion-label{
+       background-color: $colorWhite;
       text-align: center;
       button{
-          img{
+        img{
             width: 75px;
             height: 75px;
           }
@@ -17,6 +19,9 @@ page-departments {
             font-size: 12px;
             text-transform: capitalize;
             white-space: nowrap;
+          }
+          & ion-button-effect {
+            display: none;
           }
       }  
     }

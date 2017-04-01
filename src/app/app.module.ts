@@ -6,8 +6,9 @@ import { DepartmentsPage } from '../pages/departments/departments';
 import { StorePage } from '../pages/store/store';
 import { ProductlistPage } from '../pages/productlist/productlist';
 import { SublistPage} from '../pages/sublist/sublist';
-import {ProductDescPage} from '../pages/product-desc/product-desc';
+import { ProductDescPage} from '../pages/product-desc/product-desc';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { StoreMapPage } from "../pages/store-map/store-map";
 
 @NgModule({
   declarations: [
@@ -17,8 +18,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     StorePage,
     ProductlistPage,
     SublistPage,
-    ProductDescPage
-   
+    ProductDescPage,
+    StoreMapPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -31,7 +32,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     StorePage,
     ProductlistPage,
     SublistPage,
-    ProductDescPage
+    ProductDescPage,
+    StoreMapPage
   ],
   providers: [
   BarcodeScanner,
