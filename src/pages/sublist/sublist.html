@@ -30,7 +30,7 @@
 
 <ion-content class="cards-bg">
 
- <ion-card  *ngFor="let subproduct of subproducts" >
+ <ion-card  *ngFor="let subproduct of subproducts" (click)="productDetailHandler($event, subproduct)">
 
     <img src="{{product.image.url}}">
 
