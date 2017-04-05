@@ -1,6 +1,7 @@
 <ion-header >
   <ion-navbar>
     <ion-title> {{product.name}}</ion-title>
+    <!-- <ion-title> dress</ion-title> -->
     
   
       
@@ -32,7 +33,9 @@
 
  <ion-card  *ngFor="let subproduct of subproducts" (click)="productDetailHandler($event, subproduct)">
 
-    <img src="{{product.image.url}}">
+    
+    <img *ngIf ="product.image" src="{{product.image.url}}">
+    <img *ngIf ="!product.image" src="{{defaultUrl}}">
 
     <ion-card-content>
       <ion-card-title>

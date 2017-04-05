@@ -25,10 +25,11 @@ export class SublistPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public getList: GetSublist) { 
     //console.log(navParams)
     this.department = navParams.get('department');
-
+     console.log(this.department);
     this.product= navParams.get('product');
     //console.log(this.product);
-    // this.defaultUrl = navParams.get('defaultUrl');
+    this.defaultUrl = this.department.image.url;
+    console.log(this.defaultUrl);
     this.loadsublist();
   }
 
@@ -39,6 +40,7 @@ loadsublist(){
   this.getList.load(this.department, this.product)
 
   .then(data => {
+    
    this.subproducts = data;
     //console.log(data);
   });

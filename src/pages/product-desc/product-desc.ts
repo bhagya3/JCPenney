@@ -17,6 +17,8 @@ export class ProductDescPage {
 
 	product : any;
   imgurl : any;
+  brand : any;
+  title: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public getDetails : GetProdDescription) {
     
@@ -32,10 +34,13 @@ console.log('hi');
   	 this.getDetails.load(this.product)
 
   .then(data => {
+
    this.product = data;
+
    console.log(this.product);
    this.imgurl = this.product.images[0].url;
-   
+   this.brand = this.product.brand.name;
+   this.title = this.product.meta.title;
   });
   }
 
