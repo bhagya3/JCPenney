@@ -10,11 +10,13 @@ import { GetProdDescription } from '../../providers/get-prod-description';
 @Component({
   selector: 'page-product-desc',
   templateUrl: 'product-desc.html',
+
   providers:  [GetProdDescription]
 })
 export class ProductDescPage {
 
 	product : any;
+  imgurl : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public getDetails : GetProdDescription) {
     
@@ -26,12 +28,12 @@ export class ProductDescPage {
   }
 
   loadDetails(){
-
   	 this.getDetails.load(this.product)
 
   .then(data => {
    this.product = data;
    console.log(this.product);
+   this.imgurl = this.product.images[0].url;
    
   });
   }
