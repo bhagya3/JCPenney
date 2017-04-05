@@ -28,7 +28,7 @@ export class ProductDescPage {
   }
 
   loadDetails(){
-
+console.log('hi');
   	 this.getDetails.load(this.product)
 
   .then(data => {
