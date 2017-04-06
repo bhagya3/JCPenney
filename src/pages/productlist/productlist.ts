@@ -39,8 +39,8 @@ loadProductList(){
     this.navCtrl.push(SublistPage,
       {
         department: department,
-        product: product,
-        defaultUrl: department.image.url
+        product: product
+
         
       });
   };
