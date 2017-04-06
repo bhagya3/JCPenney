@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController,LoadingController, NavParams } from 'ionic-angular';
 import { GetProductList } from '../../providers/get-product-list';
 import {SublistPage} from '../sublist/sublist';
 
@@ -14,13 +14,17 @@ export class ProductlistPage {
   department : any;
   category: any;
   defaultUrl : any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public getProdList: GetProductList) { 
+  constructor(public navCtrl: NavController, public navParams: NavParams, public getProdList: GetProductList,public loadingController: LoadingController) { 
     this.department = navParams.get('department');
     this.defaultUrl = navParams.get('defaultUrl');
     this.loadProductList();
   }
 
+
 loadProductList(){
+  let loader = this.loadingController.create({
+      content: "Please wait.."
+    });
   this.getProdList.load(this.department)
   .then(data => {
 
@@ -29,6 +33,7 @@ loadProductList(){
     for(let i = 0 ;i<data.groups.length;i++){
      
       this.products = this.products.concat(data.groups[i].categories);
+      loader.dismiss();
     }
    
     
@@ -40,6 +45,7 @@ loadProductList(){
       {
         department: department,
         product: product
+
         
       });
   };

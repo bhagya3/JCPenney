@@ -4,6 +4,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { ProductlistPage } from '../productlist/productlist';
 import { GetDepartments } from '../../providers/get-departments';
 import { SearchItem } from "../../providers/search-item";
+import {SearchlistPage} from '../searchlist/searchlist';
 
 /*
   Generated class for the Departments page.
@@ -22,6 +23,7 @@ export class DepartmentsPage {
   public searchedItem: any;
   searchFlag: boolean;
   searchTag: any;
+ 
 
 
 
@@ -43,12 +45,30 @@ export class DepartmentsPage {
   };
 
   deptSelectHandler(event, department) {
+    
     this.navCtrl.push(ProductlistPage,
       {
         department: department,
         defaultUrl: department.image.url
       });
   };
+
+  // searchClickHandler(event) {
+  //   let loader = this.loadingController.create({
+  //     content: "Please wait.."
+  //   });
+  //   loader.present();
+  //   this.srchItem.load(this.searchTag)
+  //     .then(data => {
+  //       this.searchedItem = data;
+  //       loader.dismiss();
+  //       console.log(this.searchedItem);
+
+
+        
+  //     });
+  // };
+
 
   searchClickHandler(event) {
     let loader = this.loadingController.create({
@@ -60,7 +80,12 @@ export class DepartmentsPage {
         this.searchedItem = data;
         loader.dismiss();
         console.log(this.searchedItem);
+        this.sendDatatoSublist(this.searchedItem)
+        
+      
       });
+
+      
   };
 
   showTextInput(event) {
@@ -75,6 +100,17 @@ export class DepartmentsPage {
       console.log('error');
     });
 
+  }
+
+  sendDatatoSublist(product){
+     console.log('in function');
+     this.navCtrl.push(SearchlistPage,
+       {
+       
+        product: product
+ 
+       }
+      );
   }
 
 
