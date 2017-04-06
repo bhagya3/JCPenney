@@ -17,7 +17,7 @@ export class GetSublist {
     
   }
 
- load(departement, category){
+ load(category){
    
 
    return new Promise(resolve => {

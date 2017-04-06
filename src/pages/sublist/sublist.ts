@@ -37,7 +37,7 @@ export class SublistPage {
 loadsublist(){
   //console.log(this.product);
 
-  this.getList.load(this.department, this.product)
+  this.getList.load(this.product)
 
   .then(data => {
     
