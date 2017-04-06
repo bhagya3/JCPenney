@@ -11,7 +11,7 @@
     <button class="search" item-right clear (click)='showTextInput($event)'>
          <ion-icon  name="search"></ion-icon>
     </button>
-    <button primary (click)="scan()">Scan</button>
+    <button primary class="scan" (click)="scan()">Scan</button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -25,8 +25,8 @@
   </ion-row>
   <ion-row>
     <ion-col width-33 *ngFor="let department of departments" col-no-padding>
-      <ion-item class="department" no-lines text-wrap no-margin>
-        <button ion-item (click)="deptSelectHandler($event, department)" detail-none no-padding> 
+      <ion-item tappable class="department" no-lines text-wrap no-margin style="background: rgba(0,0,0,0);">
+        <button ion-item (tap)="deptSelectHandler($event, department)" detail-none no-padding> 
           <ion-avatar>
             <img  src="{{department.image.url}}" >
             

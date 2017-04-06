@@ -1,12 +1,24 @@
 page-departments {
   .search{
     background-color: $colorHeader;
+    ion-icon{
+      font-size: 20px;
+    }
+  }
+  .scan{
+    font-size: 14px;
   }
   .goButton{
     background-color: $colorWhite;
   }
   .department{
-     background-color: $colorWhite;
+    .item-ios{
+        background:none;
+    }
+    .item-md{
+        background:none;
+    }
+
     ion-label{
        background-color: $colorWhite;
       text-align: center;

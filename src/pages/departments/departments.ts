@@ -70,7 +70,7 @@ export class DepartmentsPage {
   scan() {
     this.barcodeScanner.scan().then((barcodeData) => {
       //alert(barcodeData);
-      alert('Found Product');
+      //alert('Found Product');
     }, (err) => {
       console.log('error');
     });
