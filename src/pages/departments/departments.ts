@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController,LoadingController, NavParams } from 'ionic-angular';
+import { NavController, LoadingController, NavParams } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { ProductlistPage } from '../productlist/productlist';
 import { GetDepartments } from '../../providers/get-departments';
 import { SearchItem } from "../../providers/search-item";
-
-
-
-
 
 /*
   Generated class for the Departments page.
@@ -27,9 +23,9 @@ export class DepartmentsPage {
   searchFlag: boolean;
   searchTag: any;
 
- 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public getDept: GetDepartments, public srchItem: SearchItem, public loadingController: LoadingController,public barcodeScanner: BarcodeScanner) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public getDept: GetDepartments, public srchItem: SearchItem, public loadingController: LoadingController, public barcodeScanner: BarcodeScanner) {
     this.loadDepartment();
     this.searchFlag = true;
   }
@@ -42,7 +38,7 @@ export class DepartmentsPage {
     this.getDept.load()
       .then(data => {
         this.departments = data;
-         loader.dismiss();
+        loader.dismiss();
       });
   };
 
@@ -53,7 +49,7 @@ export class DepartmentsPage {
         defaultUrl: department.image.url
       });
   };
-  
+
   searchClickHandler(event) {
     let loader = this.loadingController.create({
       content: "Please wait.."
@@ -62,7 +58,7 @@ export class DepartmentsPage {
     this.srchItem.load(this.searchTag)
       .then(data => {
         this.searchedItem = data;
-         loader.dismiss();
+        loader.dismiss();
         console.log(this.searchedItem);
       });
   };
@@ -71,18 +67,18 @@ export class DepartmentsPage {
     this.searchFlag == false ? this.searchFlag = true : this.searchFlag = false;
   };
 
-scan(){
+  scan() {
+    this.barcodeScanner.scan().then((barcodeData) => {
+      //alert(barcodeData);
+      //alert('Found Product');
+    }, (err) => {
+      console.log('error');
+    });
 
-this.barcodeScanner.scan().then((barcodeData) => {
-    alert(barcodeData);
-}, (err) => {
-    console.log('error');
-});
+  }
 
-}
 
-  
-  
+
 
 
 
